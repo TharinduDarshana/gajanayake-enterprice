@@ -126,8 +126,11 @@
 <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="">Accounts handling 
 <b class="caret"></b></a>
 <ul class="dropdown-menu">
+     <li id="menu-item-92" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-92">
+        <a href="mExpenditures.jsp">Monthly Expenditures</a></li>
     <li id="menu-item-92" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-92">
-        <a href="Expenditures.jsp">Expenditures</a></li>
+        <a href="aExpenditures.jsp">Annual Expenditures</a></li>
+   
 	<li id="menu-item-97" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-97">
 <a href="ViewExpenditures.jsp">View Expenditures</a></li>
 	<li id="menu-item-106" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-106">

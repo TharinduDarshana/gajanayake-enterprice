@@ -1,9 +1,9 @@
-
 <%-- 
-    Document   : AddSpareparts
-    Created on : Jun 30, 2015, 5:46:57 PM
-    Author     : Chathuri Lakmini 
+    Document   : AddMonthyExpend1
+    Created on : Aug 27, 2015, 4:17:36 PM
+    Author     : Tharindu
 --%>
+
 
 <%@page import="javax.swing.JOptionPane"%>
 <%@page import="javax.servlet.*"%>
@@ -25,27 +25,29 @@
        
     
          
-          String bname=request.getParameter("Bname");
-          out.print(bname);
-          String registeredno=request.getParameter("regno");
-          String description=request.getParameter("description");
-          out.print(registeredno);
-          out.print(description);
+          String bname=request.getParameter("stat");
          
+          String cbill=request.getParameter("cbill");
+          String wbill=request.getParameter("wbill");
+          String esal=request.getParameter("esal");
+          String tax=request.getParameter("tax");
+         String tbill=request.getParameter("tbill");
+         String vmain=request.getParameter("vmain");
+         String dam=request.getParameter("dam");
          
          //Increament ID    
       Statement stmt1 =conn.createStatement();
       int id=0;
-      String BrandI="BB";
+      String BrandI="ME";
       try{
       stmt1 = conn.createStatement();
-      String sql = "SELECT * FROM mbbrand ORDER BY BrandID DESC LIMIT 1";
+      String sql = "SELECT * FROM monthlyxpenditure ORDER BY MexpendId DESC LIMIT 1";
       ResultSet rs=stmt1.executeQuery(sql);
       
   
          while(rs.next())
             {    
-                BrandI=rs.getString("BrandID");
+                BrandI=rs.getString("MexpendId");
             }
          rs.close();
          }      
@@ -55,7 +57,7 @@
       } 
      id=Integer.parseInt(BrandI.substring(2));
      id=id+1;
-     String BrandID="BB"+id;
+     String expID="BB"+id;
       //End Of Increament Id
             
          
@@ -64,11 +66,10 @@
              Statement stat=conn.createStatement();
              
          
-             String sql="INSERT INTO `gajanayake`.`mbbrand` (`BrandID`, `Bname`, `RegisteredNo`, `Description`) VALUES ('"+BrandID+"', '"+bname+"', '"+registeredno+"', '"+description+"')";
-             
+             String sql="INSERT INTO `gajanayake`.`monthlyexpenditures` (`MexpendId`, `Month`, `Stationary`, `Currentbill`, `Waterbill`, `Employeesalaries`, `Income`, `Telephone`, `Damages`, `VehicleMaintains`) VALUES ('"+expID+"', 'May', '200', '3000', '1000', '75000', '1000', '2000', '5000', '25000')";
              stat.executeUpdate(sql);
               session.setAttribute("noti","yes");
-            response.sendRedirect("AddBikeBrand.jsp");
+            response.sendRedirect("mExpenditures.jsp");
             
              
              
